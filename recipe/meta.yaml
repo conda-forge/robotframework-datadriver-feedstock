@@ -1,5 +1,5 @@
 {% set name = "robotframework-datadriver" %}
-{% set version = "1.6.0" %}
+{% set version = "1.6.1" %}
 {% set build_number = 0 %}
 
 package:
@@ -8,11 +8,11 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 331426f7a94e9d5bf96ee53603360f3a56fddf7bb3eebc72998964897cde4261
+    sha256: 6962d09808b782782900124088e8d18a6a2cc7c52601efdcb66e5b94f6c89e55
   # TODO: upstream PR
   - fn: README.rst
     url: https://raw.githubusercontent.com/Snooz82/{{ name }}/{{ version }}/Readme.rst
-    sha256: aae98fde86be3f146b8cd102c220b016a65947c30e31c35a72fb9437aa2a2391
+    sha256: 1cfc483f763f042afcc5a2263d9a8ce8eff92e95c00fc73ff3a857676de05180
 
 build:
   noarch: python
