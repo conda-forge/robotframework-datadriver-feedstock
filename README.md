@@ -5,7 +5,7 @@ Home: https://github.com/Snooz82/robotframework-datadriver
 
 Package license: Apache-2.0
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/robotframework-datadriver-feedstock/blob/master/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/robotframework-datadriver-feedstock/blob/main/LICENSE.txt)
 
 Summary: A library for Data-Driven Testing.
 
@@ -15,8 +15,8 @@ Current build status
 
 <table><tr><td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13466&branchName=master">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/robotframework-datadriver-feedstock?branchName=master">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13466&branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/robotframework-datadriver-feedstock?branchName=main">
       </a>
     </td>
   </tr>
