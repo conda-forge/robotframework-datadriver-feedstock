@@ -1,48 +1,37 @@
-{% set name = "robotframework-datadriver" %}
 {% set version = "1.7.0" %}
-{% set build_number = 0 %}
 
 package:
-  name: {{ name }}
+  name: robotframework-datadriver-split
   version: {{ version }}
 
 source:
-  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 227fcda24d7726c63584d5a454f736f6e9bd3f922b8fad687d8779504092933b
-  # TODO: upstream PR
-  - fn: README.rst
-    url: https://raw.githubusercontent.com/Snooz82/{{ name }}/{{ version }}/Readme.rst
-    sha256: 0f94123b7e1acb509e15e17ee3cf6bd84b8ea53c292c2cf8cae83d884b226fc7
+  url: https://pypi.io/packages/source/r/robotframework-datadriver/robotframework-datadriver-{{ version }}.tar.gz
+  sha256: 227fcda24d7726c63584d5a454f736f6e9bd3f922b8fad687d8779504092933b
 
 build:
   noarch: python
-  number: {{ build_number }}
+  number: 0
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.6.15
   run:
-    - python >=3.6
-
-test:
-  commands:
-    - echo "TBD"
+    - python >=3.6.15
 
 outputs:
-  - name: {{ name }}
+  - name: robotframework-datadriver
     build:
-      number: {{ build_number }}
       noarch: python
       script: {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .
     requirements:
       host:
         - pip
-        - python >=3.6
+        - python >=3.6.15
       run:
         - docutils
         - pygments
-        - python >=3.6
-        - robotframework >=3.1
+        - python >=3.6.15
+        - robotframework >=4.0.2
 
     test:
       imports:
@@ -64,18 +53,18 @@ outputs:
         - LICENSE
 
 
-  - name: {{ name }}-with-xls
+  - name: robotframework-datadriver-with-xls
     build:
-      number: {{ build_number }}
       noarch: python
     requirements:
       host:
-        - python >=3.6
+        - python >=3.6.15
       run:
-        - {{ name }} {{ version }}.*
-        - pandas
-        - xlrd >=1.2.0
+        - {{ pin_subpackage('robotframework-datadriver', max_pin='x.x.x') }}
         - openpyxl
+        - pandas
+        - python >=3.6.15
+        - xlrd >=1.2.0
     test:
       imports:
         - DataDriver.xls_reader
@@ -102,5 +91,6 @@ about:
     - LICENSE
 
 extra:
+  feedstock-name: robotframework-datadriver
   recipe-maintainers:
     - bollwyvl
