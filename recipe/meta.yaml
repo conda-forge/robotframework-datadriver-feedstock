@@ -14,9 +14,9 @@ build:
 
 requirements:
   host:
-    - python >=3.6.15
+    - python >=3.7.12
   run:
-    - python >=3.6.15
+    - python >=3.7.12
 
 outputs:
   - name: robotframework-datadriver
@@ -26,11 +26,11 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6.15
+        - python >=3.7.12
       run:
         - docutils
         - pygments
-        - python >=3.6.15
+        - python >=3.7.12
         - robotframework >=4.0.2
 
     test:
@@ -58,12 +58,12 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.6.15
+        - python >=3.7.12
       run:
         - {{ pin_subpackage('robotframework-datadriver', max_pin='x.x.x') }}
         - openpyxl
         - pandas
-        - python >=3.6.15
+        - python >=3.7.12
         - xlrd >=1.2.0
     test:
       imports:
