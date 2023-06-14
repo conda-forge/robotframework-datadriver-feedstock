@@ -1,4 +1,4 @@
-{% set version = "1.7.0" %}
+{% set version = "1.8.0" %}
 
 package:
   name: robotframework-datadriver-split
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/r/robotframework-datadriver/robotframework-datadriver-{{ version }}.tar.gz
-  sha256: 227fcda24d7726c63584d5a454f736f6e9bd3f922b8fad687d8779504092933b
+  sha256: 6ff2f9fb23b7171a65e08965b14e591727b0eb746cab44d9dd7330ab7edcfd55
 
 build:
   noarch: python
