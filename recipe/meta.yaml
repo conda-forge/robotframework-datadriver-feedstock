@@ -1,4 +1,4 @@
-{% set version = "1.9.0" %}
+{% set version = "1.10.0" %}
 
 package:
   name: robotframework-datadriver-split
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/r/robotframework-datadriver/robotframework-datadriver-{{ version }}.tar.gz
-  sha256: 8d1fa6fb702b619de411de50d699e6ab9c7a3afd3b8929117ba24b5ebdb03e2b
+  sha256: 41bc823ba61b5f70c827c70a23943fe9cec3065f52eec95449bce5e6907496b0
 
 build:
   noarch: python
@@ -14,24 +14,24 @@ build:
 
 requirements:
   host:
-    - python >=3.7.12
+    - python >=3.8
   run:
-    - python >=3.7.12
+    - python >=3.8
 
 outputs:
   - name: robotframework-datadriver
     build:
       noarch: python
-      script: {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .
+      script: {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed --no-build-isolation .
     requirements:
       host:
         - pip
-        - python >=3.7.12
+        - python >=3.8
       run:
         - docutils
         - pygments
-        - python >=3.7.12
-        - robotframework >=4.0.2
+        - python >=3.8
+        - robotframework >=4.0.2, <8
 
     test:
       imports:
@@ -58,12 +58,12 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.7.12
+        - python >=3.8
       run:
         - {{ pin_subpackage('robotframework-datadriver', max_pin='x.x.x') }}
         - openpyxl
         - pandas
-        - python >=3.7.12
+        - python >=3.8
         - xlrd >=1.2.0
     test:
       imports:
