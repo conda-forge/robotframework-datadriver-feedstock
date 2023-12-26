@@ -14,24 +14,24 @@ build:
 
 requirements:
   host:
-    - python >=3.7.12
+    - python >=3.8
   run:
-    - python >=3.7.12
+    - python >=3.8
 
 outputs:
   - name: robotframework-datadriver
     build:
       noarch: python
-      script: {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .
+      script: {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed --no-build-isolation .
     requirements:
       host:
         - pip
-        - python >=3.7.12
+        - python >=3.8
       run:
         - docutils
         - pygments
-        - python >=3.7.12
-        - robotframework >=4.0.2
+        - python >=3.8
+        - robotframework >=4.0.2, <8
 
     test:
       imports:
@@ -58,12 +58,12 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.7.12
+        - python >=3.8
       run:
         - {{ pin_subpackage('robotframework-datadriver', max_pin='x.x.x') }}
         - openpyxl
         - pandas
-        - python >=3.7.12
+        - python >=3.8
         - xlrd >=1.2.0
     test:
       imports:
