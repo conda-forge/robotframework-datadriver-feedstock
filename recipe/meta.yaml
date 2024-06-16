@@ -1,12 +1,12 @@
-{% set version = "1.11.1" %}
+{% set version = "1.11.2" %}
 
 package:
   name: robotframework-datadriver-split
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/r/robotframework-datadriver/robotframework-datadriver-{{ version }}.tar.gz
-  sha256: 6d224dc5f94018d3883e5ebcdf24154fb7c893200fc4aab40fa2a06583631525
+  url: https://pypi.io/packages/source/r/robotframework-datadriver/robotframework_datadriver-{{ version }}.tar.gz
+  sha256: c75a3b8856e141331e65a22a6bed1a8263221ee6dad821d526f932918576fffd
 
 build:
   noarch: python
