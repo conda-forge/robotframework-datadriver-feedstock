@@ -1,78 +1,65 @@
 {% set version = "1.11.2" %}
 
+{% set PYTHON = PYTHON | default("$PYTHON") %}
+
 package:
-  name: robotframework-datadriver-split
+  name: robotframework-datadriver
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/r/robotframework-datadriver/robotframework_datadriver-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/r/robotframework-datadriver/robotframework_datadriver-{{ version }}.tar.gz
   sha256: c75a3b8856e141331e65a22a6bed1a8263221ee6dad821d526f932918576fffd
 
 build:
+  number: 1
   noarch: python
-  number: 0
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed --no-build-isolation --disable-pip-version-check
 
 requirements:
   host:
-    - python >=3.8
+    - pip
+    - python {{ python_min }}
+    - setuptools
   run:
-    - python >=3.8
+    - docutils
+    - pygments
+    - python >={{ python_min }}
+    - robotframework >=4.0.2,<8
+
+test:
+  requires:
+    - pip
+    - python {{ python_min }}
+  imports:
+    - DataDriver
+    - DataDriver.csv_reader
+    - DataDriver.json_reader
+    - DataDriver.pict_reader
+  commands:
+    - pip check
 
 outputs:
   - name: robotframework-datadriver
-    build:
-      noarch: python
-      script: {{ PYTHON }} -m pip install -vv --no-deps --ignore-installed --no-build-isolation .
-    requirements:
-      host:
-        - pip
-        - python >=3.8
-      run:
-        - docutils
-        - pygments
-        - python >=3.8
-        - robotframework >=4.0.2, <8
-
-    test:
-      imports:
-        - DataDriver
-        - DataDriver.csv_reader
-        - DataDriver.json_reader
-        - DataDriver.pict_reader
-      commands:
-        - pip check
-      requires:
-        - pip
-
-    about:
-      home: https://github.com/Snooz82/robotframework-datadriver
-      summary: A library for Data-Driven Testing.
-      license: Apache-2.0
-      license_file:
-        - COPYRIGHT.txt
-        - LICENSE
-
 
   - name: robotframework-datadriver-with-xls
     build:
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - python >=3.8
       run:
         - {{ pin_subpackage('robotframework-datadriver', max_pin='x.x.x') }}
         - openpyxl
         - pandas
-        - python >=3.8
         - xlrd >=1.2.0
     test:
+      requires:
+        - pip
+        - python {{ python_min }}
       imports:
         - DataDriver.xls_reader
         - DataDriver.xlsx_reader
       commands:
         - pip check
-      requires:
-        - pip
 
     about:
       home: https://github.com/Snooz82/robotframework-datadriver
