@@ -5,18 +5,18 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/r/robotframework-datadriver/robotframework_datadriver-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/r/robotframework-datadriver/robotframework_datadriver-{{ version }}.tar.gz
   sha256: c75a3b8856e141331e65a22a6bed1a8263221ee6dad821d526f932918576fffd
 
 build:
   noarch: python
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
   run:
-    - python >=3.8
+    - python >={{ python_min }}
 
 outputs:
   - name: robotframework-datadriver
@@ -26,11 +26,11 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - docutils
         - pygments
-        - python >=3.8
+        - python >={{ python_min }}
         - robotframework >=4.0.2, <8
 
     test:
@@ -43,6 +43,7 @@ outputs:
         - pip check
       requires:
         - pip
+        - python {{ python_min }}
 
     about:
       home: https://github.com/Snooz82/robotframework-datadriver
@@ -58,12 +59,12 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - {{ pin_subpackage('robotframework-datadriver', max_pin='x.x.x') }}
         - openpyxl
         - pandas
-        - python >=3.8
+        - python >={{ python_min }}
         - xlrd >=1.2.0
     test:
       imports:
@@ -73,6 +74,7 @@ outputs:
         - pip check
       requires:
         - pip
+        - python {{ python_min }}
 
     about:
       home: https://github.com/Snooz82/robotframework-datadriver
