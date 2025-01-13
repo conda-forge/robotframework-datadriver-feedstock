@@ -24,7 +24,7 @@ requirements:
     - docutils
     - pygments
     - python >={{ python_min }}
-    - robotframework >=4.0.2, <8
+    - robotframework >=4.0.2,<8
 
 test:
   requires:
